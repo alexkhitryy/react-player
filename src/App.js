@@ -45,6 +45,7 @@ function App() {
   const songEndHandler = async (event) => {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+    activeLibraryHandler(songs[(currentIndex + 1) % songs.length]);
     if (isPlaying) audioRef.current.play();
   };
 
@@ -87,7 +88,6 @@ function App() {
         audioRef={audioRef}
         isPlaying={isPlaying}
         libraryOpen={libraryOpen}
-        activeLibraryHandler={activeLibraryHandler}
       />
       <audio
         onTimeUpdate={songDurationHandler}

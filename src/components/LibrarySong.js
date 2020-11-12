@@ -12,7 +12,6 @@ const LibrarySong = ({
 }) => {
   const songSelectHandler = async () => {
     await setCurrentSong(song);
-    activeLibraryHandler(song);
 
     //Add active state
     const newSongs = songs.map((song) => {
